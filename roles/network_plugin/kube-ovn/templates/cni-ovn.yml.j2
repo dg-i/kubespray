@@ -27,7 +27,6 @@ rules:
       - subnets/status
       - ips
       - vlans
-      - networks
     verbs:
       - "*"
   - apiGroups:
@@ -284,6 +283,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
+            - name: HW_OFFLOAD
+              value: "false"
           volumeMounts:
             - mountPath: /lib/modules
               name: host-modules
